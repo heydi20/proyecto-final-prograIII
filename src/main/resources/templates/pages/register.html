@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/cliente.css}">
+</head>
+<body>
+<div class="auth-container">
+
+    <!-- Sección de la imagen a la izquierda -->
+    <div class="auth-sidebar image-section">
+        <img th:src="@{/imag/registroCli.jpg}" alt="Imagen de registro">
+
+    </div>
+
+    <!-- Sección del formulario -->
+    <div class="auth-main">
+        <div class="form-container">
+            <form th:action="@{/enviar}" method="post" th:object="${registerRequest}">
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input type="text" th:field="*{nombre}" required>
+                    <span class="error-message" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error en el nombre</span>
+                </div>
+                <div class="form-group">
+                    <label>Dirección:</label>
+                    <input type="text" th:field="*{direccion}" required>
+                    <span class="error-message" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}">Error la dirección</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" th:field="*{email}" required>
+                    <span class="error-message" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error en el email</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <input type="password" th:field="*{password}" required>
+                    <span class="error-message" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error en la contraseña</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirmar Contraseña</label>
+                    <input type="password" th:field="*{confirmarPassword}" required>
+                    <span class="error-message" th:if="${#fields.hasErrors('confirmarPassword')}" th:errors="*{confirmarPassword}">Error en confirmar contraseña</span>
+                </div>
+
+                <div>
+                    <input type="submit" class="btn btn-primary" value="Crear cuenta">
+                </div>
+
+                <div class="form-footer">
+                    <span>Already have an account?</span>
+                    <a href="/login">Sign In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
