@@ -1,27 +1,49 @@
 package com.itsqmet.app_hotel.Entidad;
 
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Data
 public class Cliente {
 
-    @NotEmpty(message = "El nombre completo no puede estar vacío")
+    @NotNull
+    private Long id;
+
+    @Size(min = 3, max = 50)
     private String nombre;
 
-    @NotEmpty(message = "El email no puede estar vacío")
-    @Email(message = "Debe ser un email válido")
+    @Size(min = 3, max = 50)
+    @NotBlank
+    private String direccion;
+
+    @NotBlank
+    @Size(min = 9, max = 10, message = "El teléfono debe tener 9 o 10 dígitos")
+    private String telefono;
+
+    @NotBlank
+    @Email(message = "Ingrese un correo válido")
     private String email;
 
-    @NotEmpty(message = "La contraseña no puede estar vacía")
-    @Size(min = 6, message = "La contraseña debe tener al menos 6 caracteres")
+    @NotNull
+    @Size(min = 8, max = 15)
+    @Pattern(
+            regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,15}$",
+            message = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial"
+    )
     private String password;
 
-    @NotEmpty(message = "La confirmación de la contraseña no puede estar vacía")
+    @NotNull
+    @Size(min = 8, max = 15)
     private String confirmarPassword;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
@@ -29,6 +51,22 @@ public class Cliente {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getEmail() {
