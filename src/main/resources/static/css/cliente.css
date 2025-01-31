@@ -6,6 +6,7 @@
     --bg-color: #ecf0f1;
 }
 
+/* General reset and body setup */
 * {
     margin: 0;
     padding: 0;
@@ -17,14 +18,81 @@ body {
     min-height: 100vh;
     background-color: var(--bg-color);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
 }
 
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+nav .buttons {
+    display: flex;
+}
+
+nav .btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+nav .btn:hover {
+    background-color: #2980b9;
+}
+
+main {
+    margin-top: 80px; /* To avoid navbar overlap */
+}
+
+/* Sidebar styles */
 .auth-container {
     width: 100%;
     max-width: 1000px;
-    margin: 20px;
+    margin: 20px auto;
     display: flex;
     border-radius: 15px;
     overflow: hidden;
@@ -46,35 +114,10 @@ body {
     margin-bottom: 20px;
 }
 
-.auth-sidebar p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    opacity: 0.9;
-}
-
 .auth-main {
     width: 60%;
     background: white;
     padding: 40px;
-}
-
-.tab-container {
-    display: flex;
-    margin-bottom: 30px;
-}
-
-.tab {
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: 500;
-    color: #666;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.tab.active {
-    color: var(--secondary-color);
-    border-bottom-color: var(--secondary-color);
 }
 
 .form-container {
@@ -112,27 +155,6 @@ body {
     color: var(--error-color);
     font-size: 0.9em;
     margin-top: 5px;
-    opacity: 1;
-    transition: opacity 0.6s ease;
-}
-
-.success-message {
-    color: var(--success-color);
-    font-size: 0.9em;
-    margin-top: 5px;
-    opacity: 1;
-    transition: opacity 0.6s ease;
-}
-
-.btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -153,17 +175,4 @@ body {
 .form-footer a {
     color: var(--secondary-color);
     text-decoration: none;
-    margin-left: 5px;
-}
-
-@media (max-width: 768px) {
-    .auth-container {
-        flex-direction: column;
-    }
-    .auth-sidebar, .auth-main {
-        width: 100%;
-    }
-    .auth-sidebar {
-        padding: 30px;
-    }
 }
