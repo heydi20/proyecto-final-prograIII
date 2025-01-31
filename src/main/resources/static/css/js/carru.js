@@ -1,45 +1,36 @@
 var data = [
 
         {
-            img: "/ADP_21/css/plomeria.jpg", // Imagen representativa del servicio de plomería
+            img: "/css/imag/plomero.jpg", // Imagen representativa del servicio de plomería
             place: "Plomeros ", // Ciudad donde se ofrece el servicio
             describe: "Ofrecemos servicios profesionales de plomería, incluyendo reparaciones de tuberías, instalaciones y mantenimiento. Nuestros expertos aseguran las mejores soluciones para tus necesidades de plomería.",
         },
         {
-            img: "/ADP_21/css/electricidad.jpg", // Imagen representativa del servicio de electricidad
+            img: "/css/imag/Electricista.jpg", // Imagen representativa del servicio de electricidad
             place: "Electricistas ", // Ciudad donde se ofrece el servicio
             describe: "Servicios de electricidad residencial e industrial. Instalaciones, reparaciones y mantenimiento eléctrico realizados por profesionales certificados.",
         },
         {
-            img: "/ADP_21/css/carpinteria.jpg", // Imagen representativa del servicio de carpintería
+            img: "/css/imag/carpintero.jpg", // Imagen representativa del servicio de carpintería
             place: "Carpinteros ", // Ciudad donde se ofrece el servicio
             describe: "Carpintería de alta calidad. Fabricamos muebles a medida, reparaciones y restauraciones. Utilizamos materiales duraderos y diseños personalizados.",
         },
         {
-            img: "/ADP_21/css/pintura.jpg", // Imagen representativa del servicio de pintura
+            img: "/css/imag/pintor.jpg", // Imagen representativa del servicio de pintura
             place: "Pintores ", // Ciudad donde se ofrece el servicio
             describe: "Servicios de pintura para interiores y exteriores. Preparación de superficies, aplicación de pintura y acabados profesionales.",
         },
         {
-            img: "/ADP_21/css/jardineria.jpg", // Imagen representativa del servicio de jardinería
+            img: "/css/imag/Jardinero.jpg", // Imagen representativa del servicio de jardinería
             place: "Jardineros ", // Ciudad donde se ofrece el servicio
             describe: "Diseño y mantenimiento de jardines. Podamos árboles, sembramos plantas y creamos espacios verdes hermosos y funcionales.",
         },
         {
-            img: "/ADP_21/css/limpieza.jpg", // Imagen representativa del servicio de limpieza
+            img: "/css/imag/c.jpg", // Imagen representativa del servicio de limpieza
             place: "Limpieza ", // Ciudad donde se ofrece el servicio
             describe: "Servicios de limpieza residencial y comercial. Limpieza profunda, desinfección y mantenimiento de espacios impecables.",
         },
-        {
-            img: "/ADP_21/css/mudanzas.jpg", // Imagen representativa del servicio de mudanzas
-            place: "Mudanzas ", // Ciudad donde se ofrece el servicio
-            describe: "Mudanzas rápidas y seguras. Empaquetamos, transportamos y entregamos tus pertenencias con cuidado y profesionalismo.",
-        },
-        {
-            img: "/ADP_21/css/techos.jpg", // Imagen representativa del servicio de reparación de techos
-            place: "Reparación ", // Ciudad donde se ofrece el servicio
-            describe: "Reparación y mantenimiento de techos. Solucionamos goteras, grietas y otros problemas para proteger tu hogar.",
-        },
+
 
 
 ];
@@ -112,7 +103,7 @@ function updateContent() {
         thumbnailListWrapper.children[1].classList.add("zoom");
         thumbnailListWrapper.children[0].remove();
         nextBtn.disabled = false;
-    }, 200);
+    }, 100);
 
     // Ajustar los índices de los demás elementos
     for (let i = 2; i < thumbnailListWrapper.childElementCount; i++) {
