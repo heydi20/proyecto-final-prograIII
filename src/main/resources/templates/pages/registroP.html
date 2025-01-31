@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Proveedor</title>
+    <link rel="stylesheet" th:href="@{/css/proveedor.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Proveedor</h1>
+        <form th:action="@{relacionarProveedor}" th:object="${proveedor}" method="post">
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text" th:field="*{nombre}" class="form-control"/>
+                <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label>Especialidad:</label>
+                <input type="text" th:field="*{especialidad}" class="form-control"/>
+                <div th:if="${#fields.hasErrors('especialidad')}" th:errors="*{especialidad}" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label>Experiencia:</label>
+                <input type="text" th:field="*{experiencia}" class="form-control"/>
+                <div th:if="${#fields.hasErrors('experiencia')}" th:errors="*{experiencia}" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label>Tarifas:</label>
+                <input type="text" th:field="*{tarifas}" class="form-control"/>
+                <div th:if="${#fields.hasErrors('tarifas')}" th:errors="*{tarifas}" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label>Correo:</label>
+                <input type="email" th:field="*{correo}" class="form-control"/>
+                <div th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label>Teléfono:</label>
+                <input type="text" th:field="*{telefono}" class="form-control"/>
+                <div th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" class="error"></div>
+            </div>
+            <div>
+                <button type="submit" class="btn">Registrar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
