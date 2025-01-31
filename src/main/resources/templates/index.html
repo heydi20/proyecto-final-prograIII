@@ -7,8 +7,6 @@
     <title>Freelancers Calificados</title>
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/css/carrusel.css}">
-
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -42,12 +40,9 @@
             servicios de manera rápida, segura y confiable para tu hogar o negocio. </p>
 
     </div>
-    <div class="image-content">
-        <img th:src="@{/css/3.jpg}" alt="Imagen de ejemplo">
-    </div>
+
 </section>
 
-<!-- Título antes del carrusel -->
 <section class="profesionales-titulo">
     <h2>¿Con qué profesionales contamos?</h2>
     <p>Descubre a los expertos disponibles para ayudarte en tus proyectos.</p>
@@ -73,14 +68,85 @@
     </div>
 </section>
 
-<!-- Otra sección -->
-<section>
-    <div>
-        <h1 class="title">Contrata a un profesional</h1>
+<section class="testimonios">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="testimonio">
+        <p>"¡Excelente servicio! El plomero llegó a tiempo y resolvió el problema rápidamente."</p>
+        <span>- María G.</span>
+    </div>
+    <div class="testimonio">
+        <p>"Muy profesionales y con precios justos. Los recomiendo totalmente."</p>
+        <span>- Juan P.</span>
     </div>
 </section>
 
+<!-- Sección de Proceso de Contratación -->
+<section class="proceso-contratacion">
+    <h2>¿Cómo funciona?</h2>
+    <div class="pasos">
+        <div class="paso">
+            <span>1</span>
+            <p>Publica tu proyecto o necesidad.</p>
+        </div>
+        <div class="paso">
+            <span>2</span>
+            <p>Recibe propuestas de profesionales calificados.</p>
+        </div>
+        <div class="paso">
+            <span>3</span>
+            <p>Elige al mejor candidato y comienza el trabajo.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Preguntas Frecuentes -->
+<section class="faq">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="pregunta">
+        <h3>¿Cómo puedo publicar un proyecto?</h3>
+        <p>Simplemente haz clic en "Quiero contratar" y sigue los pasos para publicar tu proyecto.</p>
+    </div>
+    <div class="pregunta">
+        <h3>¿Cómo se protegen los pagos?</h3>
+        <p>Utilizamos un sistema de pagos protegidos que garantiza la seguridad de tus transacciones.</p>
+    </div>
+</section>
+
+<!-- Sección de Contacto -->
+
+
+<!-- Pie de Página -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Workana</h3>
+            <ul>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Síguenos</h3>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 Workana. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
 <script th:src="@{/css/js/carru.js}"></script>
 </body>
-
 </html>

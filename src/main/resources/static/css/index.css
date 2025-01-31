@@ -130,7 +130,51 @@ nav ul li a:hover {
     justify-content: space-between;
     padding: 150px 10% 80px; /* Ajuste para el header fijo */
     gap: 50px;
-    background: #f9f9ff;
+    background: url('/css/imag/fon.jpg') no-repeat center center/cover; /* Imagen de fondo */
+    position: relative; /* Para posicionar elementos hijos relativamente */
+    color: #333; /* Color del texto (ajusta según la imagen de fondo) */
+}
+
+/* Asegúrate de que el contenido esté por encima de la imagen de fondo */
+.hero .text-content, .hero .image-content {
+    position: relative;
+    z-index: 2; /* Coloca el contenido por encima de la imagen de fondo */
+}
+
+/* Ajustes de color para el texto si es necesario */
+.hero h1 {
+    color: #333; /* Color del título */
+}
+
+.hero .description {
+    color: #555; /* Color de la descripción */
+}
+
+.hero .btn.primary {
+    background: #6a40e4;
+    color: white;
+}
+
+.hero .btn.primary:hover {
+    background: #4b2ecc;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 5% 50px;
+    }
+
+    .hero .text-content {
+        text-align: center; /* Centra el texto en móviles */
+    }
+
+    .hero .image-content img {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 
 .text-content {
@@ -248,6 +292,8 @@ h1 {
         width: 100%;
         max-width: 300px;
     }
+
+
 
 
 }
