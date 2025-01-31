@@ -1,83 +1,86 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/index.css">
-    <title>Mi Marketplace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancers Calificados</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/carrusel.css}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<!-- Navbar -->
-<nav class="navbar">
-    <div class="logo">Mi Marketplace</div>
-    <ul class="nav-links">
-        <li><a href="#">Quiero Contratar</a></li>
-        <li><a href="#">Quiero Trabajar</a></li>
-    </ul>
-</nav>
+<header>
+    <nav>
+        <a href="#" class="logo">workana</a>
+        <ul>
+            <li><a href="#contratar" class="btn quiero">Quiero contratar</a></li>
+            <li><a href="#trabajar" class="btn trabajar">Quiero trabajar</a></li>
+        </ul>
+        <div class="buttons">
+            <a href="#" class="btn login">Ingresa</a>
+            <a href="#" class="btn register">Regístrate</a>
+        </div>
+    </nav>
+</header>
 
 <!-- Sección Hero -->
 <section class="hero">
-    <h1>Encuentra y <span>contrata</span> profesionales fácilmente</h1>
-    <p>Plomeros, electricistas, carpinteros y más, disponibles para ayudarte.</p>
-    <a href="#" class="btn">Explorar Servicios</a>
+    <div class="text-content">
+        <p class="small-text">
+            <span>✔ Publicar es gratis</span> <span>✔ Garantía de satisfacción</span>
+            <span>✔ Pagos protegidos</span>
+        </p>
+        <h1><span class="highlight">Expertos en plomería y electricidad</span> listos para ayudarte <span
+                class="highlight">cuando lo necesites</span></h1>
+        <p class="description">
+            Encuentra profesionales calificados en plomería, electricidad, carpintería, pintura y más. Solicita
+            servicios de manera rápida, segura y confiable para tu hogar o negocio. </p>
+
+    </div>
+    <div class="image-content">
+        <img th:src="@{/css/3.jpg}" alt="Imagen de ejemplo">
+    </div>
 </section>
 
-<!-- Sección: Cómo Funciona -->
-<section class="como-funciona">
-    <h2>Cómo Funciona</h2>
-    <div class="pasos">
-        <div class="paso">
-            <h3>1. Busca</h3>
-            <p>Encuentra al profesional que necesitas en nuestra plataforma.</p>
+<!-- Título antes del carrusel -->
+<section class="profesionales-titulo">
+    <h2>¿Con qué profesionales contamos?</h2>
+    <p>Descubre a los expertos disponibles para ayudarte en tus proyectos.</p>
+</section>
+
+<!-- Sección del Carrusel -->
+<section>
+    <div class="container">
+        <div class="content">
+            <div class="introduce"></div>
+            <div class="thumbnail-list">
+                <div class="wrapper">
+                    <!-- Contenido del carrusel aquí -->
+                </div>
+            </div>
         </div>
-        <div class="paso">
-            <h3>2. Contrata</h3>
-            <p>Selecciona el servicio y contrata de manera segura.</p>
-        </div>
-        <div class="paso">
-            <h3>3. Disfruta</h3>
-            <p>Recibe el servicio y califica al profesional.</p>
+
+        <div class="navigation">
+            <button class="next-button"></button>
+            <span class="line"></span>
+            <span class="ordinal-number"></span>
         </div>
     </div>
 </section>
 
-<!-- Sección: Beneficios -->
-<section class="beneficios">
-    <h2>Beneficios</h2>
-    <div class="beneficios-lista">
-        <div class="beneficio">
-            <h3>Profesionales Verificados</h3>
-            <p>Todos los profesionales en nuestra plataforma están verificados y calificados.</p>
-        </div>
-        <div class="beneficio">
-            <h3>Pago Seguro</h3>
-            <p>Realiza pagos de manera segura a través de nuestra plataforma.</p>
-        </div>
-        <div class="beneficio">
-            <h3>Soporte 24/7</h3>
-            <p>Nuestro equipo está disponible para ayudarte en cualquier momento.</p>
-        </div>
+<!-- Otra sección -->
+<section>
+    <div>
+        <h1 class="title">Contrata a un profesional</h1>
     </div>
 </section>
 
-<!-- Sección: Preguntas Frecuentes -->
-<section class="preguntas-frecuentes">
-    <h2>Preguntas Frecuentes</h2>
-    <div class="faq">
-        <div class="pregunta">
-            <h3>¿Cómo puedo contratar un servicio?</h3>
-            <p>Simplemente busca el profesional que necesitas, selecciona el servicio y realiza el pago.</p>
-        </div>
-        <div class="pregunta">
-            <h3>¿Qué pasa si no estoy satisfecho con el servicio?</h3>
-            <p>Ofrecemos garantía de satisfacción. Si no estás contento, te ayudamos a resolver el problema.</p>
-        </div>
-        <div class="pregunta">
-            <h3>¿Cómo se verifican los profesionales?</h3>
-            <p>Verificamos identidad, experiencia y calificaciones de cada profesional.</p>
-        </div>
-    </div>
-</section>
+<script th:src="@{/css/js/carru.js}"></script>
 </body>
+
 </html>
