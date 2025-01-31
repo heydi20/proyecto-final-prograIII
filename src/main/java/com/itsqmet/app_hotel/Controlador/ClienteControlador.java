@@ -21,8 +21,8 @@ public class ClienteControlador {
     public String enviarFormulario(@Valid @ModelAttribute("registerRequest") Cliente cliente, BindingResult bindingResult, Model model) {
         System.out.println("Formulario enviado: " + cliente);
         if (bindingResult.hasErrors()) {
-            return "pages/register"; // Volver a la misma página si hay errores
+            return "pages/register";
         }
-        return "index"; // Redirigir a la página de inicio si no hay errores
+        return "index";
     }
 }

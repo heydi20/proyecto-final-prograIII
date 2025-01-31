@@ -4,7 +4,63 @@ body {
     margin: 0;
     padding: 20px;
 }
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
 
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #6a40e4;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto; /* Botones a la derecha */
+}
+
+.buttons .btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.login {
+    color: #333;
+    border: 1px solid #6a40e4;
+}
+
+.register {
+    background: #6a40e4;
+    color: white;
+}
+
+.login:hover {
+    background: #6a40e4;
+    color: white;
+}
+
+.register:hover {
+    background: #4b2ecc;
+}
 .container {
     max-width: 600px;
     margin: auto;
