@@ -19,7 +19,7 @@ import java.util.Optional;
 @Service
 public class ClienteServicio {
     @Autowired
-    private ClienteRepositorio clienteRepositorio;
+     ClienteRepositorio clienteRepositorio;
     public List<Cliente> mostrarClientes() {return clienteRepositorio.findAll();}
 
     public List<Cliente> buscarClienteNombre(String buscarCliente){

@@ -1,5 +1,6 @@
 package com.itsqmet.app_hotel.Entidad;
 
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -31,7 +32,8 @@ public class Proveedor {
         @NotBlank(message = "El teléfono es obligatorio")
         @Size(min = 10, max = 13, message = "El teléfono debe tener entre 10 y 13 caracteres")
         private String telefono;
-    
+
+
     
         public String getNombre() {
             return nombre;
