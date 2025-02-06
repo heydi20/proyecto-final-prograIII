@@ -11,6 +11,6 @@ public class ProveedorControlador {
     @GetMapping("/registrarProveedor")
     public String mostrarFormulario(Model model) {
         model.addAttribute("proveedor", new Proveedor());  
-        return "/pages/registroP.html"; 
+        return "/";
     }
 }

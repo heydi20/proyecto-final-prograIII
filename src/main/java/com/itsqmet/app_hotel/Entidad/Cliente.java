@@ -1,13 +1,18 @@
 package com.itsqmet.app_hotel.Entidad;
 
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
-@Data
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class Cliente {
 
-    @NotNull
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Size(min = 3, max = 50)
@@ -25,17 +30,9 @@ public class Cliente {
     @Email(message = "Ingrese un correo válido")
     private String email;
 
-    @NotNull
-    @Size(min = 8, max = 15)
-    @Pattern(
-            regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,15}$",
-            message = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial"
-    )
-    private String password;
 
-    @NotNull
-    @Size(min = 8, max = 15)
-    private String confirmarPassword;
+
+
 
     public Long getId() {
         return id;
@@ -77,19 +74,5 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getConfirmarPassword() {
-        return confirmarPassword;
-    }
-
-    public void setConfirmarPassword(String confirmarPassword) {
-        this.confirmarPassword = confirmarPassword;
-    }
 }
