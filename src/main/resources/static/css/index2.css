@@ -1,0 +1,36 @@
+.testimonios {
+    background-color: #d1d3d8 !important;
+    padding: 40px 10% !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    text-align: center !important;
+    margin-top: 80px !important;
+}
+.proceso-contratacion {
+    background-color: #d1d3d8 !important;
+    padding: 40px 10% !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    text-align: center !important;
+    margin-top: 80px !important;
+}
+
+.faq{
+    background-color: #d1d3d8 !important;
+    padding: 40px 10% !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    text-align: center !important;
+    margin-top: 80px !important;
+}
+.profesionales-titulo{
+    background-color: #d1d3d8 !important;
+    padding: 40px 10% !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    text-align: center !important;
+    margin-top: 80px !important;
+}
+.profesionales-titulo p {
+    color: #6c6c6c; /* Cambia el color del texto del párrafo a blanco */
+}
