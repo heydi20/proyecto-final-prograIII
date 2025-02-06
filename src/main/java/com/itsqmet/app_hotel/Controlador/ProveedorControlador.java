@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.itsqmet.app_hotel.Entidad.Proveedor;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -27,9 +28,9 @@ public class ProveedorControlador {
     @GetMapping("/formularioProveedor")
     public String mostrarFormularioProveedor(Model model) {
         model.addAttribute("proveedor", new Proveedor());
-        return "Proveedor/formularioProveedor";
+        return "Proveedor/formulario";
     }
-    @GetMapping("/registrarProveedor")
+    @PostMapping("/registrarProveedor")
     public String insertarProveedor(Proveedor proveedor) {
         proveedorServicio.guardarProveedor(proveedor);
         return "redirect:/proveedores";
@@ -38,7 +39,7 @@ public class ProveedorControlador {
     public String editarProveedor(@PathVariable Long id, Model model) {
         Optional<Proveedor> proveedor = proveedorServicio.buscarProveedor(id);
         model.addAttribute("proveedor", proveedor);
-        return "Proveedor/formularioProveedor";
+        return "Proveedor/formulario";
     }
     @GetMapping("/eliminarProveedor/{id}")
     public String eliminarProveedor(@PathVariable Long id) {

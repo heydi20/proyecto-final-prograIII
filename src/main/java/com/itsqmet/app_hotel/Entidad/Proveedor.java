@@ -1,12 +1,14 @@
 package com.itsqmet.app_hotel.Entidad;
 
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+@Entity
 public class Proveedor {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
         @NotBlank(message = "El nombre es obligatorio")
