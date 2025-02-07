@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nosotros - Workana</title>
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/css/index2.css}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/nosotros.css}">
+
+    <title>Sobre Nosotros - Workana</title>
+
 </head>
 <body>
 <header>
     <nav>
         <a href="#" class="logo">workana</a>
         <ul>
-            <li><a th:href="@{/}" class="btn quiero">Inicio</a></li>
-            <li><a th:href="@{/registrocli}" class="btn quiero">Quiero contratar</a></li>
+            <li><a th:href="@{/registro}" class="btn quiero">Quiero contratar</a></li>
             <li><a th:href="@{/registrarProveedor}" class="btn trabajar">Quiero trabajar</a></li>
+            <li><a th:href="@{/nosotros}" class="btn trabajar">Nosotros</a></li>
         </ul>
         <div class="buttons">
             <a href="#" class="btn login">Ingresa</a>
@@ -24,9 +25,8 @@
         </div>
     </nav>
 </header>
-
 <!-- Sección Hero - Sobre Nosotros -->
-<section class="hero" style="background: url('/css/imag/sobre-nosotros.jpg') no-repeat center center/cover;">
+<section class="hero">
     <div class="text-content">
         <h1>Sobre Nosotros</h1>
         <p class="description">
@@ -77,55 +77,12 @@
     </div>
 </section>
 
-<!-- Sección de Contacto -->
-<section class="contacto">
-    <h2>Contáctanos</h2>
-    <p>¿Tienes alguna pregunta? Escríbenos y estaremos encantados de ayudarte.</p>
-    <form>
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-
-        <button type="submit" class="btn primary">Enviar</button>
-    </form>
-</section>
 
 <!-- Pie de Página -->
 <footer>
     <div class="footer-content">
-        <div class="footer-section">
-            <h3>Workana</h3>
-            <ul>
-                <li><a th:href="@{/nosotros}">Sobre Nosotros</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>Legal</h3>
-            <ul>
-                <li><a href="#">Términos y Condiciones</a></li>
-                <li><a href="#">Política de Privacidad</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>Síguenos</h3>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
         <p>&copy; 2025 Workana. Todos los derechos reservados.</p>
     </div>
 </footer>
-
 </body>
 </html>
