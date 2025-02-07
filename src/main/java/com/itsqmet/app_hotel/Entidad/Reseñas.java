@@ -5,8 +5,10 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Reseñas {
@@ -16,9 +18,9 @@ public class Reseñas {
 
     @NotBlank(message = "El comentario no puede estar vacío")
     private String comentario;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "La fecha es obligatoria")
-    private LocalDate fecha;
+    private Date fechacomentario;
 
     @NotNull(message = "La calificación es obligatoria")
     @Min(value = 1, message = "La calificación mínima es 1")
@@ -49,12 +51,29 @@ public class Reseñas {
         this.comentario = comentario;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+
+    public @NotNull(message = "La fecha es obligatoria") Date getFechacomentario() {
+        return fechacomentario;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechacomentario(@NotNull(message = "La fecha es obligatoria") Date fechacomentario) {
+        this.fechacomentario = fechacomentario;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 
     public Integer getCalificacion() {

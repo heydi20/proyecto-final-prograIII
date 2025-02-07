@@ -45,15 +45,10 @@ public class PrestacionesControlador {
 
     @GetMapping("/actualizarPrestaciones/{id}")
     public String editarPrestaciones(@PathVariable Long id, Model model) {
-        Optional<Prestaciones> optionalPrestacion = prestacionesServicios.buscarPrestaciones(id);
-        if (optionalPrestacion.isPresent()) {
-            model.addAttribute("prestacion", optionalPrestacion.get()); // ✅ Corrección aquí
-        } else {
-            return "redirect:/prestaciones"; // Evitar errores si no se encuentra el ID
-        }
+        Optional<Prestaciones> prestaciones = prestacionesServicios.buscarPrestaciones(id);
+        model.addAttribute("prestaciones", prestaciones);
         return "Prestaciones/formulario";
     }
-
 
     @GetMapping("/prestaciones/{id}")
     public String eliminarPrestaciones(@PathVariable Long id, Model model) {
