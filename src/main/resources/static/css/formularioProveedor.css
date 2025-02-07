@@ -1,0 +1,112 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f4f7fc, #e8ebf3);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #6a40e4;
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav .btn {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav .btn:hover {
+    color: #c9ada7;
+}
+
+.container {
+    padding: 2rem;
+}
+
+.form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    color: black;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #6a40e4;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #c9ada7;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #6a40e4;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 78, 105, 0.3);
+}
+
+.btn-submit {
+    background-color: #6a40e4;
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem;
+    border-radius: 8px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #6a40e4;
+}
+
+footer {
+    background-color: #6a40e4;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+footer a {
+    color: #c9ada7;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
