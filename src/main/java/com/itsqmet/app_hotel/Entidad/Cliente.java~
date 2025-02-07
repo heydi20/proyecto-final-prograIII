@@ -35,21 +35,8 @@ public class Cliente {
     private List<Resenas> reseñasCliente = new ArrayList<>();
 
 
-    public List<Contrato> getContratos() {
-        return contratos;
-    }
 
-    public void setContratos(List<Contrato> contratos) {
-        this.contratos = contratos;
-    }
 
-    public List<Resenas> getReseñasCliente() {
-        return reseñasCliente;
-    }
-
-    public void setReseñasCliente(List<Resenas> reseñasCliente) {
-        this.reseñasCliente = reseñasCliente;
-    }
 
     public Long getId() {
         return id;

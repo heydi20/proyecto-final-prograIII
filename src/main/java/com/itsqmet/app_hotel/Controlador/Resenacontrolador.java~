@@ -31,7 +31,7 @@ public class Resenacontrolador {
             Date buscarResenas, Model model) {
         List<Resenas> resenas = resenaServicio.buscarResena(buscarResenas);
         model.addAttribute("resenas", resenas);
-        return "Resenas/listaReseñas";
+        return "Resenas/listaResenas";
     }
 
     //Mostrar formulario

@@ -34,22 +34,6 @@ public class Contrato {
     @JoinColumn(name="id_prestacion")
     private Prestaciones prestaciones;
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Prestaciones getPrestaciones() {
-        return prestaciones;
-    }
-
-    public void setPrestaciones(Prestaciones prestaciones) {
-        this.prestaciones = prestaciones;
-    }
-
     // Getters y Setters
     public Long getId() {
         return id;

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ContratoRepositorio extends JpaRepository<Contrato, Long> {
   List<Contrato> findByNombreContratoContainingIgnoreCase(String nombreContrato);
+
 }

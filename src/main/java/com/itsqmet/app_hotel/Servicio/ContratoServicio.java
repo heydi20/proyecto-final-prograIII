@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContratoServicio {
@@ -38,6 +39,7 @@ public class ContratoServicio {
     public void eliminarContrato(Long id) {
         contratoRepositorio.deleteById(id);
     }
+    public Optional <Contrato> buscarContratoId(Long id){return contratoRepositorio.findById(id);}
 
 
     public byte[] generarPdf() throws ExceptionInInitializerError, DocumentException, IOException {
