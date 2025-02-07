@@ -30,6 +30,11 @@ public class Cliente {
     @Email(message = "Ingrese un correo válido")
     private String email;
 
+    @OneToMany(mappedBy = "cliente",fetch = FetchType.LAZY)
+    private List<Contrato> contratos = new ArrayList<>();
+    @OneToMany(mappedBy = "cliente",fetch = FetchType.LAZY)
+    private List<Reseñas> reseñasCliente = new ArrayList<>();
+
 
 
 

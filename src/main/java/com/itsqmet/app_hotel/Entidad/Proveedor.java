@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
 @Entity
 public class Proveedor {
     @Id
@@ -35,6 +37,10 @@ public class Proveedor {
         @Size(min = 10, max = 13, message = "El teléfono debe tener entre 10 y 13 caracteres")
         private String telefono;
 
+        @OneToMany(mappedBy = "proveedor")
+private List<Prestaciones> prestaciones;
+        @OneToMany(mappedBy = "proveedor")
+        private List<Reseñas> reseñas ;
 
     
         public String getNombre() {
