@@ -12,10 +12,12 @@
 <!-- Navbar -->
 <header>
     <nav>
-        <a href="#" class="logo">Workana</a>
+        <a th:href="@{/}" class="logo">workana</a>
         <ul>
-            <li><a th:href="@{/registro}" class="btn">Quiero contratar</a></li>
-            <li><a th:href="@{/registrarProveedor}" class="btn">Quiero trabajar</a></li>
+            <li><a th:href="@{/formularioProveedor}" class="btn quiero">Quiero contratar</a></li>
+            <li><a th:href="@{/formularioCliente}" class="btn trabajar">Quiero trabajar</a></li>
+            <li><a th:href="@{/formularioPrestaciones}" class="btn trabajar">Prestaciones</a></li>
+            <li><a th:href="@{/nosotros}" class="btn trabajar">Nosotros</a></li>
         </ul>
 
     </nav>
