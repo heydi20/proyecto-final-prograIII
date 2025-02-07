@@ -1,0 +1,62 @@
+package com.itsqmet.app_hotel.Controlador;
+
+import com.itsqmet.app_hotel.Entidad.Contrato;
+import com.itsqmet.app_hotel.Entidad.Cliente;
+import com.itsqmet.app_hotel.Entidad.Prestaciones;
+import com.itsqmet.app_hotel.Servicio.ContratoServicio;
+import com.itsqmet.app_hotel.Servicio.ClienteServicio;
+
+import com.itsqmet.app_hotel.Servicio.PrestacionesServicios;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@Controller
+public class ContratoControlador {
+    @Autowired
+    private ContratoServicio contratoServicio;
+
+    @Autowired
+    private ClienteServicio clienteServicio;
+
+    @Autowired
+    private PrestacionesServicios prestacionesServicio;
+
+    // Mostrar lista de contratos
+    @GetMapping("/contratos")
+    public String listarContratos(Model model) {
+        List<Contrato> contratos = contratoServicio.mostrarContratos();
+        model.addAttribute("contratos", contratos);
+        return "Contrato/listaContrato";
+    }
+
+    // Mostrar formulario de contrato
+    @GetMapping("/formularioContrato")
+    public String mostrarFormulario(Model model) {
+        List<Cliente> clientes = clienteServicio.mostrarClientes();
+        List<Prestaciones> prestaciones = prestacionesServicio.buscarPrestacionesPorNombre();
+        model.addAttribute("contrato", new Contrato());
+        model.addAttribute("clientes", clientes);
+        model.addAttribute("prestaciones", prestaciones);
+        return "Contrato/formulario";
+    }
+
+    // Insertar contrato
+
+
+    // Actualizar contrato
+
+
+    // Eliminar contrato
+    @GetMapping("/eliminarContrato/{id}")
+    public String eliminarContrato(@PathVariable Long id) {
+        contratoServicio.eliminarContrato(id);
+        return "redirect:/contratos";
+    }
+}

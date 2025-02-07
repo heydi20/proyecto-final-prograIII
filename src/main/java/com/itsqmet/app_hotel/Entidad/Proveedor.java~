@@ -40,7 +40,7 @@ public class Proveedor {
         @OneToMany(mappedBy = "proveedor")
 private List<Prestaciones> prestaciones;
         @OneToMany(mappedBy = "proveedor")
-        private List<Resenas> reseñas ;
+        private List<Reseñas> reseñas ;
 
     
         public String getNombre() {

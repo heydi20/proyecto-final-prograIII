@@ -3,7 +3,6 @@ package com.itsqmet.app_hotel.Entidad;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,7 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente",fetch = FetchType.LAZY)
     private List<Contrato> contratos = new ArrayList<>();
     @OneToMany(mappedBy = "cliente",fetch = FetchType.LAZY)
-    private List<Reseñas> reseñasCliente = new ArrayList<>();
+    private List<Resenas> reseñasCliente = new ArrayList<>();
 
 
 
