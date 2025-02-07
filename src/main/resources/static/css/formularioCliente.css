@@ -3,6 +3,9 @@ body {
     background: linear-gradient(135deg, #f4f7fc, #e8ebf3);
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -40,6 +43,7 @@ nav .btn:hover {
 }
 
 .container {
+    flex: 1;
     padding: 2rem;
 }
 
@@ -98,8 +102,9 @@ nav .btn:hover {
 footer {
     background-color: #6a40e4;
     color: white;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
+    margin-top: auto;
 }
 
 footer a {
