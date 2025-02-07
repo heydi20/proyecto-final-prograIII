@@ -3,14 +3,20 @@ body {
     background: linear-gradient(135deg, #f4f7fc, #e8ebf3);
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    display: flex;
+    height: 100vh; /* Se asegura que el body ocupe toda la altura */
+    display: flex; /* Usamos flexbox para centrar contenido */
     flex-direction: column;
+    padding-top: 70px; /* Añadido para dejar espacio para el navbar */
 }
 
 header {
     background-color: #6a40e4;
     padding: 1rem;
+    position: fixed; /* Hace que el navbar esté fijo en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que ocupe toda la pantalla */
+    z-index: 1000; /* Asegura que el navbar quede sobre el resto del contenido */
 }
 
 nav {
@@ -44,11 +50,12 @@ nav .btn:hover {
 }
 
 .container {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    flex: 1;
+    margin-top: 80px; /* Espacio añadido para evitar que el formulario se superponga con el navbar */
 }
 
 .form-container {
