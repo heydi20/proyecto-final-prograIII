@@ -42,7 +42,7 @@ public class Resenacontrolador {
         model.addAttribute("resenas", new Resenas());
         model.addAttribute("proveedores", proveedores);
         model.addAttribute("clientes", clientes);
-        return "Resenas/formularioResenas";
+        return "Resenas/formulario";
 
     }
     //Insertar
@@ -67,7 +67,7 @@ public class Resenacontrolador {
         model.addAttribute("clientes", clientes);
         model.addAttribute("proveedores", proveedores);
 
-        return "Resenas/formularioResenas";
+        return "Resenas/formulario";
     }
     //Eliminar
     @GetMapping("/eliminarResenas/{id}")

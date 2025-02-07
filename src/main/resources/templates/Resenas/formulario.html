@@ -1,63 +1,47 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.0.0/dist/flowbite.min.css" rel="stylesheet" />
     <meta charset="UTF-8">
     <title>Formulario de Reseñas</title>
 </head>
 <body>
-<h1>Formulario de Reseñas</h1>
-
-<form th:action="@{/registrarResenas}" th:object="${resenas}" method="post">
-
+<h2>Registro de Reseña</h2>
+<form th:action="@{/registrarResenas}" method="post" th:object="${resenas}" class="max-w-sm mx-auto">
     <input type="hidden" th:field="*{id}" />
 
-    <div>
-        <label for="comentario">Comentario:</label>
-        <textarea id="comentario" th:field="*{comentario}" required></textarea>
-        <span th:if="${#fields.hasErrors('comentario')}" th:errors="*{comentario}"></span>
+    <div class="mb-5">
+        <label for="comentario" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comentario:</label>
+        <textarea id="comentario" th:field="*{comentario}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
     </div>
 
-    <div>
-        <label for="fechacomentario">Fecha de Comentario:</label>
-        <input type="date" id="fechacomentario" th:field="*{fechacomentario}" required />
-        <span th:if="${#fields.hasErrors('fechacomentario')}" th:errors="*{fechacomentario}"></span>
+    <div class="mb-5">
+        <label for="fechacomentario" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha:</label>
+        <input type="date" id="fechacomentario" th:field="*{fechacomentario}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
     </div>
 
-    <div>
-        <label for="calificacion">Calificación (1-5):</label>
-        <input type="number" id="calificacion" th:field="*{calificacion}" min="1" max="5" required />
-        <span th:if="${#fields.hasErrors('calificacion')}" th:errors="*{calificacion}"></span>
+    <div class="mb-5">
+        <label for="calificacion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Calificación:</label>
+        <input type="number" id="calificacion" th:field="*{calificacion}" min="1" max="5" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
     </div>
 
-    <div>
-        <label for="cliente">Cliente:</label>
-        <select id="cliente" th:field="*{cliente.id}" required>
-            <option value="">Seleccione un cliente</option>
-            <option th:each="cliente : ${clientes}"
-                    th:value="${cliente.id}"
-                    th:text="${cliente.nombre}">
-            </option>
+    <div class="mb-5">
+        <label for="cliente" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cliente:</label>
+        <select id="cliente" th:field="*{cliente.id}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="" disabled selected>Seleccionar un cliente</option>
+            <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nombre}"></option>
         </select>
-        <span th:if="${#fields.hasErrors('cliente')}" th:errors="*{cliente}"></span>
     </div>
 
-    <div>
-        <label for="proveedor">Proveedor:</label>
-        <select id="proveedor" th:field="*{proveedor.id}" required>
-            <option value="">Seleccione un proveedor</option>
-            <option th:each="proveedor : ${proveedores}"
-                    th:value="${proveedor.id}"
-                    th:text="${proveedor.nombre}">
-            </option>
+    <div class="mb-5">
+        <label for="proveedor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Proveedor:</label>
+        <select id="proveedor" th:field="*{proveedor.id}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="" disabled selected>Seleccionar un proveedor</option>
+            <option th:each="proveedor : ${proveedores}" th:value="${proveedor.id}" th:text="${proveedor.nombre}"></option>
         </select>
-        <span th:if="${#fields.hasErrors('proveedor')}" th:errors="*{proveedor}"></span>
     </div>
 
-    <div>
-        <button type="submit">Guardar Reseña</button>
-    </div>
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Guardar</button>
 </form>
-
-<a href="/resenas">Volver a la lista de reseñas</a>
 </body>
 </html>
