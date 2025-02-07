@@ -20,6 +20,8 @@
             <li><a th:href="@{/formularioProveedor}" class="btn quiero">Quiero contratar</a></li>
             <li><a th:href="@{/formularioCliente}" class="btn trabajar">Quiero trabajar</a></li>
             <li><a th:href="@{/formularioPrestaciones}" class="btn trabajar">Prestaciones</a></li>
+            <li><a th:href="@{/formularioResenas}" class="btn trabajar">Reseñas</a></li>
+            <li><a th:href="@{/formularioContratos}" class="btn trabajar">Contrato</a></li>
             <li><a th:href="@{/nosotros}" class="btn trabajar">Nosotros</a></li>
         </ul>
 
@@ -115,8 +117,6 @@
     </div>
 </section>
 
-<!-- Sección de Contacto -->
-
 
 <!-- Pie de Página -->
 <footer>
@@ -124,7 +124,7 @@
         <div class="footer-section">
             <h3>Workana</h3>
             <ul>
-                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a th:href="@{/nosotros}" class="btn trabajar">Sobre Nosotros</a></li>
                 <li><a href="#">Servicios</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
