@@ -3,10 +3,11 @@ body {
     background: linear-gradient(135deg, #f4f7fc, #e8ebf3);
     margin: 0;
     padding: 0;
-    height: 100vh; /* Se asegura que el body ocupe toda la altura */
-    display: flex; /* Usamos flexbox para centrar contenido */
+    min-height: 100vh; /* Asegura que el body ocupe toda la pantalla */
+    display: flex;
     flex-direction: column;
-    padding-top: 70px; /* Añadido para dejar espacio para el navbar */
+    justify-content: space-between; /* Distribuye el contenido */
+    padding-top: 70px; /* Espacio para el navbar */
 }
 
 header {
@@ -54,8 +55,7 @@ nav .btn:hover {
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    flex: 1;
-    margin-top: 80px; /* Espacio añadido para evitar que el formulario se superponga con el navbar */
+    flex-grow: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
 }
 
 .form-container {
@@ -117,7 +117,7 @@ footer {
     color: white;
     padding: 1rem;
     text-align: center;
-    margin-top: auto;
+    margin-top: auto; /* Asegura que el footer se mantenga en la parte inferior */
 }
 
 footer a {
