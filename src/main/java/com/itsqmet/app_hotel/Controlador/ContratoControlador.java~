@@ -31,13 +31,12 @@ public class ContratoControlador {
     PrestacionesServicios prestacionesServicios;
     @Autowired
     ClienteServicio clienteServicio;
-    //Listar
     @GetMapping("/contratos")
     public String listarContratos(@RequestParam(name = "buscarContratos", required = false) String buscarContratos, Model model) {
         List<Contrato>contratos = contratoServicio.buscarContratoPorNombre(buscarContratos);
         model.addAttribute("buscarContratos", buscarContratos);
         model.addAttribute("contratos", contratos);
-        return "Contrato/listaContratos";
+        return "Contrato/listaContrato";
     }
     @GetMapping("/formularioContratos")
     public String mostrarFormularioContratos(Model model) {

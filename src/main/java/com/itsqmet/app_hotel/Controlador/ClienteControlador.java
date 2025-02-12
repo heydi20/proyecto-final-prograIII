@@ -2,7 +2,13 @@ package com.itsqmet.app_hotel.Controlador;
 
 import com.itextpdf.text.DocumentException;
 import com.itsqmet.app_hotel.Entidad.Cliente;
+import com.itsqmet.app_hotel.Entidad.Contrato;
+import com.itsqmet.app_hotel.Entidad.Prestaciones;
+import com.itsqmet.app_hotel.Entidad.Proveedor;
 import com.itsqmet.app_hotel.Servicio.ClienteServicio;
+import com.itsqmet.app_hotel.Servicio.ContratoServicio;
+import com.itsqmet.app_hotel.Servicio.PrestacionesServicios;
+import com.itsqmet.app_hotel.Servicio.ProveedorServicio;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +28,12 @@ import java.util.Optional;
 public class ClienteControlador {
     @Autowired
     ClienteServicio clienteServicio;
+    @Autowired
+    ProveedorServicio proveedorServicio;
+    @Autowired
+    PrestacionesServicios prestacionesServicios;
+    @Autowired
+    ContratoServicio contratoServicio;
 
 
     @GetMapping("/clientes")
@@ -31,6 +43,21 @@ public class ClienteControlador {
         model.addAttribute("clientes", clientes);
         return "Cliente/listaCliente";
     }
+    @GetMapping("/vistaCliente")
+    public String vistaCliente(Model model) {
+        List<Cliente> clientes = clienteServicio.buscarClienteNombre(""); // obtener lista de clientes
+        List<Proveedor> proveedores = proveedorServicio.mostrarProveedores(); // obtener lista de proveedores
+        List<Prestaciones> prestaciones = prestacionesServicios.mostrarPrestaciones(); // obtener lista de prestaciones>
+
+        model.addAttribute("clientes", clientes); // pasamos la lista de clientes
+        model.addAttribute("proveedores", proveedores); // pasamos la lista de proveedores
+        model.addAttribute("prestaciones",prestaciones );
+        model.addAttribute("cliente", new Cliente()); // para el formulario de cliente
+        model.addAttribute("contrato", new Contrato()); // <-- aquí agregamos contrato
+
+        return "Cliente/Vistacliente"; // retornamos la vista
+    }
+
     // Mostrar formulario
     @GetMapping("/formularioCliente")
     public String mostrarFormulario(Model model) {
@@ -46,25 +73,17 @@ public class ClienteControlador {
     // Actualizar
     @GetMapping("/actualizarCliente/{id}")
     public String editarCliente(@PathVariable Long id, Model model) {
-        Optional<Cliente> cliente = clienteServicio.buscarClienteId(id);
-        model.addAttribute("cliente", cliente);
-        return "Cliente/formulario";
+        Optional<Cliente> clienteOpt = clienteServicio.buscarClienteId(id);
+
+        if (clienteOpt.isPresent()) {
+            Cliente cliente = clienteOpt.get();
+            model.addAttribute("cliente", cliente);
+            return "Cliente/formulario2"; // Asegúrate de que esta vista exista.
+        }
+
+        return "redirect:/clientes"; // Redirige a la lista de clientes si no se encuentra el cliente.
     }
 
-
-    //// Obtener libros por autor
-    //    @GetMapping("/autor/{id}")
-    //    public String obtenerLibrosPorAutor(@PathVariable Long id, Model model) {
-    //        Optional<Libro> libros = libroServicio.buscarLibroId(id);
-    //        Autor autor = autorServicio.buscarAutorId(id)
-    //                .orElseThrow(() -> new RuntimeException("Autor no encontrado"));
-    //
-    //        model.addAttribute("autor", autor);
-    //        model.addAttribute("libros", libros);
-    //
-    //        return "Autor/listaAutorLibros";
-    //    }
-    // Eliminar
     @GetMapping("/eliminarCliente/{id}")
     public String eliminarCliente(@PathVariable Long id) {
         clienteServicio.eliminarCliente(id);

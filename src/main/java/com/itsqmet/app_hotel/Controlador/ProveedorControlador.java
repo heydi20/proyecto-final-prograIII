@@ -19,12 +19,22 @@ public class ProveedorControlador {
     ProveedorServicio proveedorServicio;
 
     @GetMapping("/proveedores")
-    public String mostrarProveedores(@RequestParam(name = "buscarProveedor", required = false, defaultValue = "") String buscarProveedor, Model model) {
+    public String mostrarProveedores(
+            @RequestParam(name = "buscarProveedor", required = false, defaultValue = "") String buscarProveedor,
+            @RequestParam(name = "vista", required = false, defaultValue = "proveedor") String vista,
+            Model model) {
+
         List<Proveedor> proveedores = proveedorServicio.buscarProveedorNombre(buscarProveedor);
         model.addAttribute("buscarProveedor", buscarProveedor);
         model.addAttribute("proveedores", proveedores);
-        return "Proveedor/listaProveedor";
+
+        if ("cliente".equals(vista)) {
+            return "Cliente/Vistacliente";  // Vista de clientes
+        }
+
+        return "Proveedor/listaProveedor"; // Vista de proveedores
     }
+
     @GetMapping("/formularioProveedor")
     public String mostrarFormularioProveedor(Model model) {
         model.addAttribute("proveedor", new Proveedor());
