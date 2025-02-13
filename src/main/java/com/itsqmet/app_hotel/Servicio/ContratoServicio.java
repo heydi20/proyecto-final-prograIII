@@ -50,7 +50,7 @@ public class ContratoServicio {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PdfWriter writer = PdfWriter.getInstance(document, baos);
 
-        // Color corporativo y variaciones
+
         BaseColor corporatePurple = new BaseColor(75, 46, 204);      // Color principal
         BaseColor lightPurple = new BaseColor(243, 241, 255);        // Fondo claro
         BaseColor mediumPurple = new BaseColor(133, 111, 224);       // Tono medio
@@ -60,21 +60,21 @@ public class ContratoServicio {
                 try {
                     PdfContentByte cb = writer.getDirectContent();
 
-                    // Franja superior más delgada
+
                     Rectangle rect = new Rectangle(36, document.getPageSize().getHeight() - 60,
                             document.getPageSize().getWidth() - 36,
                             document.getPageSize().getHeight() - 36);
                     rect.setBackgroundColor(corporatePurple);
                     cb.rectangle(rect);
 
-                    // Logo de la empresa
+
                     ClassPathResource resource = new ClassPathResource("static/images/logo.png");
                     Image logo = Image.getInstance(resource.getURL());
                     logo.setAbsolutePosition(46, document.getPageSize().getHeight() - 56);
                     logo.scaleToFit(60, 20);
                     cb.addImage(logo);
 
-                    // Nombre de la empresa
+
                     BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                     cb.beginText();
                     cb.setFontAndSize(bf, 11);
@@ -83,14 +83,14 @@ public class ContratoServicio {
                     cb.showText("Workana - Plataforma de Trabajo y Contratación");
                     cb.endText();
 
-                    // Línea sutil en el pie de página
+
                     cb.setLineWidth(0.5f);
                     cb.setColorStroke(mediumPurple);
                     cb.moveTo(36, 30);
                     cb.lineTo(document.getPageSize().getWidth() - 36, 30);
                     cb.stroke();
 
-                    // Pie de página con información de contacto
+
                     cb.beginText();
                     cb.setFontAndSize(bf, 8);
                     cb.setColorFill(BaseColor.GRAY);
@@ -99,7 +99,6 @@ public class ContratoServicio {
                             (document.getPageSize().getWidth()) / 2, 15, 0);
                     cb.endText();
 
-                    // Número de página con diseño sutil
                     cb.beginText();
                     cb.setFontAndSize(bf, 8);
                     cb.setColorFill(mediumPurple);
@@ -116,14 +115,14 @@ public class ContratoServicio {
 
         document.open();
 
-        // Título del documento
+
         Font titleFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 20, corporatePurple);
         Paragraph title = new Paragraph("Listado de Contratos", titleFont);
         title.setAlignment(Element.ALIGN_CENTER);
         title.setSpacingAfter(20);
         document.add(title);
 
-        // Fecha del reporte
+
         Font dateFont = FontFactory.getFont(FontFactory.HELVETICA, 10, BaseColor.GRAY);
         Paragraph date = new Paragraph();
         date.add(new Chunk("Fecha de generación: " +
@@ -132,12 +131,12 @@ public class ContratoServicio {
         date.setSpacingAfter(20);
         document.add(date);
 
-        // Tabla con diseño más limpio
+
         PdfPTable table = new PdfPTable(new float[]{1, 3, 2.5f, 2.5f});
         table.setWidthPercentage(100);
         table.setSpacingBefore(10f);
 
-        // Encabezados de la tabla
+
         Font headerFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 11, BaseColor.WHITE);
         String[] headers = {"ID", "Nombre Contrato", "Fecha Inicio", "Fecha Fin"};
         for (String header : headers) {
@@ -148,7 +147,6 @@ public class ContratoServicio {
             table.addCell(cell);
         }
 
-        // Datos de la tabla con diseño zebra sutil
         Font contentFont = FontFactory.getFont(FontFactory.HELVETICA, 10);
         BaseColor zebraColor = lightPurple;
         int rowCount = 0;
@@ -158,7 +156,7 @@ public class ContratoServicio {
 
             PdfPCell cell;
 
-            // ID
+
             cell = new PdfPCell(new Phrase(String.valueOf(contrato.getId()), contentFont));
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setPadding(6);
@@ -167,7 +165,7 @@ public class ContratoServicio {
             cell.setBorderWidth(1);
             table.addCell(cell);
 
-            // Nombre Contrato
+
             cell = new PdfPCell(new Phrase(contrato.getNombreContrato(), contentFont));
             cell.setPadding(6);
             cell.setBackgroundColor(backgroundColor);
@@ -175,7 +173,7 @@ public class ContratoServicio {
             cell.setBorderWidth(1);
             table.addCell(cell);
 
-            // Fecha Inicio
+
             cell = new PdfPCell(new Phrase(String.valueOf(contrato.getFechaInicio()), contentFont));
             cell.setPadding(6);
             cell.setBackgroundColor(backgroundColor);
@@ -183,7 +181,7 @@ public class ContratoServicio {
             cell.setBorderWidth(1);
             table.addCell(cell);
 
-            // Fecha Fin
+
             cell = new PdfPCell(new Phrase(String.valueOf(contrato.getFechaFin()), contentFont));
             cell.setPadding(6);
             cell.setBackgroundColor(backgroundColor);
@@ -196,7 +194,7 @@ public class ContratoServicio {
 
         document.add(table);
 
-        // Nota al pie
+
         Font noteFont = FontFactory.getFont(FontFactory.HELVETICA_OBLIQUE, 9, BaseColor.GRAY);
         Paragraph note = new Paragraph();
         note.add(new Chunk("\nEste documento es una lista oficial de contratos registrados en Workana. " +
