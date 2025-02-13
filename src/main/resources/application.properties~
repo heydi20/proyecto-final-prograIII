@@ -1,7 +1,0 @@
-
-spring.application.name=app_hotel
-spring.datasource.url=jdbc:postgresql://localhost:5432/servicio
-spring.datasource.username=postgres
-spring.datasource.password=12345
-spring.datasource.driver-class-name=org.postgresql.Driver
-spring.jpa.hibernate.ddl-auto=update
